@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<link rel="icon" href="toplogo.png">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Sketchup</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+    body {
+        padding-top: 70px;
+	/*	background-image:url(particles.gif);*/
+		background-image:url(paint.jpg);
+		background-repeat:no-repeat;
+		background-size:1380px 720px;
+        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    }
+    </style>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Sketchup</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <!--             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Services</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div> -->
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1>SketchUp</h1>
+                <p class="lead">A site that includes a color palette and  allows the user to make a color splash image</p>
+             <!--   <ul class="list-unstyled">
+                    <li>Bootstrap v3.3.7</li>
+                    <li>jQuery v1.11.1</li>
+                    <li>Sketch.js</li>
+                </ul>-->
+            </div>
+        </div>
+        <div class="row" id="colors_demo">
+		    <canvas style="border:solid 1px black; float:left; display:block;background-color:white;" id="colors_sketch" width="720" height="402" ></canvas>
+            <div class="tools" style="float: left;border:solid 1px black; width:76px;height=360px; background-color:white">
+                <a href="#colors_sketch" data-download="png" style="float: right; width:65px;">Display</a>
+            </div>
+            
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+    <!-- jQuery Version 1.11.1 -->
+    <script src="js/jquery.js"></script>
+    <!-- sketch.js -->
+    <script src="js/sketch.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $( function() 
+	   {
+	    
+		$.each([3, 5, 10, 15,25], 
+		function() 
+		{
+            $('#colors_demo .tools').append("<a href='#colors_sketch' data-size='" + this + "' style='background: #ccc; float:left; border:solid 1px black;'>" + this + "</a> ");
+        });
+		$('#colors_demo .tools').append("<a href='index.html' style='float:right;width:55px;' data-tool='eraser'>Clear</a>");
+        $.each(['BLACK', 'YELLOW', 'RED', 'MAROON', 'GRAY', 'LIME', 'GREEN', 'OLIVE', 'SILVER', 'AQUA', 'BLUE', 'NAVY', 'WHITE', 'FUCHSIA', 'PURPLE', 'TEAL', 'PINK'], 
+		function() 
+		{
+            $('#colors_demo .tools').append("<a href='#colors_sketch' data-color='" + this + "'align='center' style='width: 75px; float:left; background: " + this + ";'>"+ this +"</a> ");
+        });
+                
+        $('#colors_sketch').sketch();
+       }
+	);
+    </script>
+</body>
+
+</html>
